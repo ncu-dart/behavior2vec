@@ -11,10 +11,10 @@ Desc
 import collections
 import functools
 import itertools
-import numpy as np
 import sys
 
 import gensim
+import numpy as np
 
 from scipy import spatial
 
@@ -101,6 +101,10 @@ class Behavior2Vec(object):
             return [self.behavior_model[target_behavior_type]['label'][i] for i in indices[1:]], dists[1:]
         else:
             return [self.behavior_model[target_behavior_type]['label'][i] for i in indices[:-1]], dists[:-1]
+
+    def most_similar_item(self, cur_item, k=1, disregard_self=True):
+        # TODO: ...
+        pass
 
 
 def main(argv):
