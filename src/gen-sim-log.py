@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 # Hung-Hsuan Chen <hhchen1105@gmail.com>
-# Last Modified: Thu 18 Jan 2018 11:28:09 PM CST
+# Last Modified: Mon 22 Jan 2018 02:04:33 PM CST
 
 import numpy as np
 import os
@@ -90,7 +90,7 @@ def save_item_info(items, filename):
 
 
 def save_log(logs):
-    with open('../data/sim-log-session-%i.txt' % (len(logs)), 'w') as f:
+    with open('./data/sim-log-session-%i.txt' % (len(logs)), 'w') as f:
         for session in logs:
             f.write('%s\n' % (' '.join(session)))
 
@@ -99,7 +99,7 @@ def main(argv):
     n_items = 10000
     n_sessions = 100000
 
-    item_info_filename = '../data/item-info-%i.pck' % (n_items)
+    item_info_filename = './data/item-info-%i.pck' % (n_items)
     items = gen_items(n_items=n_items, filename=item_info_filename)
     save_item_info(items, filename=item_info_filename)
     logs = gen_logs(items, n_sessions=n_sessions)
