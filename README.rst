@@ -8,9 +8,9 @@ Sample usage (with caution):
 
 >>> import behavior2vec
 >>> model = behavior2vec.Behavior2Vec()
->>> model.train('./data/sample_data.txt')
->>> model.most_similar_behavior('v-100', 'p', k=5)  # predict user 1's rating on item 10
->>> model.most_similar_item('100', k=5)
+>>> model.train('./data/sample_data.txt')  # log file, one line per user (session)
+>>> model.most_similar_behavior('v-100', 'p', k=5)  # predict most similar p-type (purchasing) behavior to 'v-100' (view item 100)
+>>> model.most_similar_item('100', k=5) # predict most similar items to item 100
 
 ***************
 How to install:
