@@ -22,12 +22,14 @@ How to install:
 Command line tools:
 *******************
 
+After installation, you may run the following scripts directly (tested in Ubuntu 16.04 and OS X El Capitan).
+
 To generate the Behavior2Vec model, run:
 ========================================
 
 ``b2v-train.py [train-file]``
 
-This will generate a model file of the name ``[train-file]-b2v-model.pck``
+This will generate a model file of the name ``[train-file]-b2v-model.pck`` under the same directory.
 
 To show the most similar behavior, run:
 =======================================
