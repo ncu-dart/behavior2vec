@@ -1,8 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-# Hung-Hsuan Chen <hhchen1105@gmail.com>
-# Last Modified: Mon 22 Jan 2018 02:04:33 PM CST
+'''
+This script generates the simulation data
+'''
+
 
 import numpy as np
 import os

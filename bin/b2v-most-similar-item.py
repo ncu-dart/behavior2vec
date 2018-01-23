@@ -2,19 +2,20 @@
 # -*- coding: utf-8 -*-
 
 '''
-Desc
+This script shows the most similar items based on the behavior2vec model.
 
+After installation, you may run the following command:
+
+$ b2v-most-similar-item.py [test-file] [model-file] [output-file] [k]
+
+The [test-file] contains a list of query items, one behavior per line.
+The [output-file] is the output file, which contains a list of the top [k] most simiar items
 '''
-
-# Hung-Hsuan Chen <hhchen1105@gmail.com>
-# Creation Date : 01-22-2018
 
 import argparse
 import os
 import pickle
 import sys
-
-import behavior2vec
 
 
 parser = argparse.ArgumentParser()

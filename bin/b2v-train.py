@@ -2,8 +2,13 @@
 # -*- coding: utf-8 -*-
 
 '''
-Desc
+This script generates the behavior2vec model.
 
+After installation, you may run the following command:
+
+$ b2v-train.py [train-file]
+
+This will generate a model file of the name [train-file]-b2v-model.pck
 '''
 
 # Hung-Hsuan Chen <hhchen1105@gmail.com>

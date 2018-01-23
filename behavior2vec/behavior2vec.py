@@ -2,11 +2,8 @@
 # -*- coding: utf-8 -*-
 
 '''
-Desc
-
+This module runs the behavior2vec model
 '''
-
-# Hung-Hsuan Chen <hhchen1105@gmail.com>
 
 import collections
 import functools

@@ -2,12 +2,16 @@
 # -*- coding: utf-8 -*-
 
 '''
-Desc
+This script shows the most similar behavior based on the behavior2vec model.
 
+After installation, you may run the following command:
+
+$ b2v-most-similar-behavior.py [test-file] [model-file] [output-file] [k] [behavior-type]
+
+The [test-file] contains a list of query behaviors, one behavior per line.
+
+The [output-file] is the output file, which contains a list of the top [k] most simiar behaviors
 '''
-
-# Hung-Hsuan Chen <hhchen1105@gmail.com>
-# Creation Date : 01-22-2018
 
 import argparse
 import pickle
