@@ -90,18 +90,25 @@ class Behavior2Vec(object):
         return item_embeddings
 
     def most_similar_behavior(self, cur_behavior, target_behavior_type=None, k=1, disregard_self=True):
-        if target_behavior_type is None:
-            # TODO..
-            # 1. return the top-k for all behavior types
-            # 2. combine the above lists and return the top-k labels and their corresponding distances
-            #return ...
-            pass
         cur_behavior_embedding = self.full_model.wv[cur_behavior]
+        if target_behavior_type is None:
+            all_dists = []
+            all_indices = []
+            all_behavior_types = []
+            for b in self.behavior_model.keys():
+                dists, indices = self.behavior_model[b]['model'].query(cur_behavior_embedding, k+1)
+                all_dists.extend(dists)
+                all_indices.extend(indices)
+                all_behavior_types.extend([b] * len(dists))
+            small_indices = np.argpartition(all_dists, k+1)
+            small_indices = small_indices[1:] if disregard_self else small_indices[:-1]
+            return [all_behavior_types[i] + '-' + self.behavior_model[all_behavior_types[i]]['label'][all_indices[i]] for i in small_indices], [all_dists[i] for i in small_indices]
+
         dists, indices = self.behavior_model[target_behavior_type]['model'].query(cur_behavior_embedding, k+1)
         if disregard_self:
-            return [self.behavior_model[target_behavior_type]['label'][i] for i in indices[1:]], dists[1:]
+            return [target_behavior_type + '-' + self.behavior_model[target_behavior_type]['label'][i] for i in indices[1:]], dists[1:]
         else:
-            return [self.behavior_model[target_behavior_type]['label'][i] for i in indices[:-1]], dists[:-1]
+            return [target_behavior_type + '-' + self.behavior_model[target_behavior_type]['label'][i] for i in indices[:-1]], dists[:-1]
 
     def most_similar_item(self, cur_item, k=1, disregard_self=True):
         cur_item_embedding = None
