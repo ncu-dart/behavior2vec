@@ -45,12 +45,12 @@ class Behavior2Vec(object):
     def _gen_behavior_model(self):
         for behavior in self.behavior_embeddings:
             self.behavior_model[behavior] = {'label': list(self.behavior_embeddings[behavior].keys()),
-                                             'model': spatial.KDTree(list(self.behavior_embeddings[behavior].values()))}
+                                             'model': spatial.cKDTree(list(self.behavior_embeddings[behavior].values()))}
 
     def _gen_item_model(self):
         item_embeddings = self._gen_item_embeddings()
         self.item_model = {'label': list(item_embeddings.keys()),
-                           'model': spatial.KDTree(list(item_embeddings.values()))}
+                           'model': spatial.cKDTree(list(item_embeddings.values()))}
 
     def _gen_behavior_embedding(self):
         behavior_embeddings = collections.defaultdict(lambda: collections.defaultdict())
@@ -65,7 +65,7 @@ class Behavior2Vec(object):
             for behavior in behavior_embeddings.keys():
                 if item_id not in behavior_embeddings[behavior]:
                     behavior_embeddings[behavior][item_id] = avg_behavior_embeddings[behavior]
-        return behavior_embeddings
+        return dict(behavior_embeddings)
 
     def _gen_avg_behavior_embeddings(self, behavior_embeddings):
         avg_behavior_embeddings = {}
@@ -95,6 +95,7 @@ class Behavior2Vec(object):
             # 1. return the top-k for all behavior types
             # 2. combine the above lists and return the top-k labels and their corresponding distances
             #return ...
+            pass
         cur_behavior_embedding = self.full_model.wv[cur_behavior]
         dists, indices = self.behavior_model[target_behavior_type]['model'].query(cur_behavior_embedding, k+1)
         if disregard_self:
@@ -103,8 +104,17 @@ class Behavior2Vec(object):
             return [self.behavior_model[target_behavior_type]['label'][i] for i in indices[:-1]], dists[:-1]
 
     def most_similar_item(self, cur_item, k=1, disregard_self=True):
-        # TODO: ...
-        pass
+        cur_item_embedding = None
+        for i, behavior_type in enumerate(self.behavior_embeddings.keys()):
+            if i == 0:
+                cur_item_embedding = self.behavior_embeddings[behavior_type][cur_item]
+            else:
+                cur_item_embedding = np.append(cur_item_embedding, self.behavior_embeddings[behavior_type][cur_item])
+        dists, indices = self.item_model['model'].query(cur_item_embedding, k+1)
+        if disregard_self:
+            return [self.item_model['label'][i] for i in indices[1:]], dists[1:]
+        else:
+            return [self.item_model['label'][i] for i in indices[:-1]], dists[:-1]
 
 
 def main(argv):
