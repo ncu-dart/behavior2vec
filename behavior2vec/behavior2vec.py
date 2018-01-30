@@ -120,15 +120,3 @@ class Behavior2Vec(object):
         else:
             return [self.item_model['label'][i] for i in indices[:-1]], dists[:-1]
 
-
-def main(argv):
-    log_file = '../data/sim-log-session-1000.txt'
-    size = 300
-    window = 5
-
-    b2v_model = Behavior2Vec()
-    b2v_model.train(log_file, size=size, window=window)
-
-
-if __name__ == "__main__":
-    main(sys.argv)
