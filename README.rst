@@ -5,14 +5,14 @@ behavior2vec
 This package implements the ``Behavior2Vec`` algorithm introduced in the following paper.
 Please cite the paper if you use this package.
 
-``
+```
 Behavior2Vec: Generating Distributed Representations of Users' Behaviors on Products for Recommender Systems  
 Hung-Hsuan Chen  
 TKDD ACM Transactions on Knowledge Discovery from Data 20(2), 2018 [ACM]  
-``
+```
 
 BibTex:  
-``
+```
 @article{chen2018behavior2vec,
     title={Behavior2Vec: Generating Distributed Representations of Users’ Behaviors on Products for Recommender Systems},
     author={Chen, Hung-Hsuan},
@@ -23,7 +23,7 @@ BibTex:
     year={2018},
     publisher={ACM}
 }
-``
+```
 
 ****************************
 Sample usage (with caution):
