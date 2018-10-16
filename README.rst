@@ -7,18 +7,18 @@ Please cite the paper if you use this package.
 
 Chen, Hung-Hsuan. "Behavior2Vec: Generating Distributed Representations of Users’ Behaviors on Products for Recommender Systems." *ACM Transactions on Knowledge Discovery from Data (TKDD)* 12.4 (2018).
 
-BibTex:
+BibTex::
 
-```@article{chen2018behavior2vec,
-    title={Behavior2Vec: Generating Distributed Representations of Users’ Behaviors on Products for Recommender Systems},
-    author={Chen, Hung-Hsuan},
-    journal={ACM Transactions on Knowledge Discovery from Data (TKDD)},
-    volume={12},
-    issue={4},
-    year={2018},
-    publisher={ACM}
-}
-```
+    @article{chen2018behavior2vec,
+        title={Behavior2Vec: Generating Distributed Representations of Users’ Behaviors on Products for Recommender Systems},
+        author={Chen, Hung-Hsuan},
+        journal={ACM Transactions on Knowledge Discovery from Data (TKDD)},
+        volume={12},
+        issue={4},
+        year={2018},
+        publisher={ACM}
+    }
+
 
 ****************************
 Sample usage (with caution):
