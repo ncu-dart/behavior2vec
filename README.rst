@@ -20,6 +20,13 @@ BibTeX::
     }
 
 
+Download: 
+
+* URL1: http://in.ncu.edu.tw/~hhchen/academic_works/chen18-tkdd-b2v.pdf
+
+* URL2: https://dl.acm.org/citation.cfm?id=3184454
+
+
 ****************************
 Sample usage (with caution):
 ****************************
