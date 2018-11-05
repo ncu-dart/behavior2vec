@@ -20,7 +20,7 @@ BibTeX::
     }
 
 
-Download: 
+Paper download: 
 
 * URL1: http://in.ncu.edu.tw/~hhchen/academic_works/chen18-tkdd-b2v.pdf
 
