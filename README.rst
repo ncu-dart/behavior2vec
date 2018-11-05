@@ -3,7 +3,7 @@ behavior2vec
 ======
 
 This package implements the ``Behavior2Vec`` algorithm introduced in the following paper.
-Please cite the paper if you use this package.
+Please cite the paper if you find this package useful.
 
 Chen, Hung-Hsuan. "Behavior2Vec: Generating Distributed Representations of Users’ Behaviors on Products for Recommender Systems." *ACM Transactions on Knowledge Discovery from Data (TKDD)* 12.4 (2018).
 
